@@ -1,0 +1,59 @@
+# This is a Hacker Rank's excersise. 
+
+# Get user inputs
+# transform strings onto integers
+# Make a totten that is going to be placed at the center of my shape
+# dashes will go to the left and right of my totten. 
+size, width = input().split()
+size = int(size)
+width = int(width)
+totten = '.|.'
+dash = '-'
+
+# define a function to print n number of tottens n number of dashes to each side of the sides of the totten 
+def printLine(numOfTotten):
+    numOfDash = width - len(totten) * numOfTotten
+    numOfDash = numOfDash //2
+
+    row = numOfDash * dash + numOfTotten *totten + numOfDash * dash
+
+    print(row)
+
+#define a function to print 'Welcome' in the middle of the shape with n num of dashes on each side
+def welcome():
+    wel = 'WELCOME'
+    numOfDash = width - len(wel)
+    numOfDash = numOfDash //2
+    rowCenter = numOfDash * dash + wel + numOfDash * dash
+    print(rowCenter)
+
+# Start with 1 as the total of tottens,
+# Get the number of rows -1 for the row in the middle with 'Welcome' divede the n of rows by two and print
+tt = 1
+num_rows = (size - 1) // 2
+for i in range(num_rows):
+    printLine(tt)
+    tt += 2
+
+welcome() # print the middle row
+
+# Start from the end of my previos row minus two tottens and print (to make an upsidown pyramid)
+tt -=2
+for i in range(num_rows):
+    printLine(tt)
+    tt -= 2
+    
+    
+    
+    
+         # you are
+    
+------------.|.------------
+---------.|..|..|.---------
+------.|..|..|..|..|.------
+---.|..|..|..|..|..|..|.---
+----------WELCOME----------
+---.|..|..|..|..|..|..|.---
+------.|..|..|..|..|.------
+---------.|..|..|.---------
+------------.|.------------
